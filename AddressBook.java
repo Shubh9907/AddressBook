@@ -6,9 +6,11 @@ import java.util.Scanner;
 public class AddressBook {
 
     ArrayList<Contacts> contact_Details = new ArrayList<>();
-
     static Scanner sc = new Scanner(System.in);
 
+    /*
+    Method to add new contact
+     */
     public void addContacts() {
         Scanner sc = new Scanner(System.in);
         System.out.println("Enter Contact Details");
@@ -33,6 +35,10 @@ public class AddressBook {
         contact_Details.add(details);
     }
 
+    /*
+    Method to edit existing contact
+    @param name
+     */
     public void editContacts(String name) {
         for (Contacts contact : contact_Details) {
             if (name.equalsIgnoreCase(contact.getFirstName())) {
@@ -65,10 +71,28 @@ public class AddressBook {
         }
     }
 
+    /*
+    Method to delete an existing contact
+    @param name
+     */
+    public void deleteContact(String name) {
+        for (Contacts contact : contact_Details) {
+            if (name.equalsIgnoreCase(contact.getFirstName())) {
+                System.out.println("Entered Name found in the contacts, deleting contact");
+                contact_Details.remove(contact);
+            } else
+                System.out.println("Contact not found");
+        }
+    }
+
     public static void main(String[] args) {
         System.out.println("Welcome to Address Book System");
     }
 }
+
+/*
+This class contains getter and setter to set contact details
+ */
 class Contacts {
     private String firstName, lastName;
     private String address, city, state;
@@ -154,7 +178,7 @@ class Contacts {
 
     public String toString() {
         return
-                "FirstName  =  " + firstName +"\nLastName   =  " + lastName +"\nAddress    =  " + address + "\nCity       =  " + city +
-                "\nState      =  " + state + "\nZipCode    =  " + pinCode + "\nNumber     =  " + phoneNumber + "\nEmail      =  " + email;
+                "FirstName  =  " + firstName + "\nLastName   =  " + lastName + "\nAddress    =  " + address + "\nCity       =  " + city +
+                        "\nState      =  " + state + "\nZipCode    =  " + pinCode + "\nNumber     =  " + phoneNumber + "\nEmail      =  " + email;
     }
 }
