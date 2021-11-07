@@ -1,6 +1,38 @@
 package com.bridgelabz;
 
+import java.util.ArrayList;
+import java.util.Scanner;
+
 public class AddressBook {
+
+    ArrayList<Contacts> contact_Details = new ArrayList<>();
+
+    static Scanner sc = new Scanner(System.in);
+
+    public void addContacts() {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter Contact Details");
+        System.out.println("Enter the first name");
+        String firstName = sc.next();
+        System.out.println("Enter the Last name");
+        String lastName = sc.next();
+        System.out.println("Enter the address");
+        String address = sc.next();
+        System.out.println("Enter the city ");
+        String city = sc.next();
+        System.out.println("Enter the state ");
+        String state = sc.next();
+        System.out.println("Enter the Email Id ");
+        String emailId = sc.next();
+        System.out.println("Enter the Pin Code ");
+        int zipCode = sc.nextInt();
+        System.out.println("Enter phone number ");
+        int phoneNumber = sc.nextInt();
+        System.out.println("Contact saved");
+        Contacts details = new Contacts(firstName, lastName, address, city, state, emailId, zipCode, phoneNumber);
+        contact_Details.add(details);
+    }
+
     public static void main(String[] args) {
         System.out.println("Welcome to Address Book System");
     }
