@@ -33,6 +33,38 @@ public class AddressBook {
         contact_Details.add(details);
     }
 
+    public void editContacts(String name) {
+        for (Contacts contact : contact_Details) {
+            if (name.equalsIgnoreCase(contact.getFirstName())) {
+                System.out.println("Edit the first name");
+                String firstName = sc.next();
+                contact.setFirstName(firstName);
+                System.out.println("Edit the last name");
+                String lastName = sc.next();
+                contact.setLastName(lastName);
+                System.out.println("Edit the address");
+                String address = sc.next();
+                contact.setAddress(address);
+                System.out.println("Edit the city");
+                String city = sc.next();
+                contact.setCity(city);
+                System.out.println("Edit the state");
+                String state = sc.next();
+                contact.setState(state);
+                System.out.println("Edit the email Id");
+                String emailId = sc.next();
+                contact.setEmailId(emailId);
+                System.out.println("Edit the Pin Code");
+                int zipcode = sc.nextInt();
+                contact.setZipCode(zipcode);
+                System.out.println("Edit the Phone Number");
+                long phoneNumber = sc.nextInt();
+                contact.setPhoneNumber(phoneNumber);
+            } else
+                System.out.println("Contact not found");
+        }
+    }
+
     public static void main(String[] args) {
         System.out.println("Welcome to Address Book System");
     }
