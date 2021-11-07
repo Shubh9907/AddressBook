@@ -1,6 +1,7 @@
 package com.bridgelabz;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Scanner;
 
 public class AddressBook {
@@ -86,7 +87,35 @@ public class AddressBook {
     }
 
     public static void main(String[] args) {
+        HashMap<String, AddressBook> addressBooks = new HashMap<>();
+        AddressBook obj = new AddressBook();
         System.out.println("Welcome to Address Book System");
+
+        int i = 1;
+        while (i != 0) {
+        System.out.println("Enter 1 to add contact\nEnter 2 to edit contact\nEnter 3 to delete contact\nEnter 0 to exit");
+        int userChoice = sc.nextInt();
+
+            switch (userChoice) {
+                case 1:
+                    obj.addContacts();
+                    break;
+                case 2:
+                    System.out.println("Enter the first name to edit that contact");
+                    String name = sc.next();
+                    obj.editContacts(name);
+                    break;
+                case 3:
+                    System.out.println("Enter the first name by which u want to edit contact");
+                    String search_Name = sc.next();
+                    obj.deleteContact(search_Name);
+                    break;
+                default:
+                    System.out.println("Invalid Input");
+                    i=0;
+                    break;
+            }
+        }
     }
 }
 
