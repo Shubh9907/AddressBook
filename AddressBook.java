@@ -46,7 +46,6 @@ public class AddressBook {
             map.put(bookName, addressBook);
             i++;
         }
-        System.out.println(map);
     }
 }
 
